@@ -33,7 +33,7 @@ object MessageService {
                 complete(false)
             }
 
-        }, Response.ErrorListener {
+        }, Response.ErrorListener {error ->
             Log.d("ERROR", "Couldn't retrieve channels: $error")
             complete(false)
         }) {

@@ -64,7 +64,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private val userDataChangeReceiver = object : BroadcastReceiver(){
-        override fun onReceive(context: Context?, intent: Intent?) {
+        override fun onReceive(context: Context, intent: Intent?) {
             if (AuthService.isLoggedIn){
                 userNameNavHeader.text = UserDataService.name
                 userEmailNavHeader.text = UserDataService.email
@@ -73,7 +73,7 @@ class MainActivity : AppCompatActivity() {
                 userImageNavHeader.setBackgroundColor(UserDataService.returnAvatarColor(UserDataService.avatarColor))
                 loginBtnNavHeader.text = "Logout"
 
-                MessageService.getChannels(context){complete ->
+                MessageService.getChannels(context){ complete ->
                     if (complete){
                         channelAdapter.notifyDataSetChanged()
                     }
