@@ -5,6 +5,7 @@ import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import com.anb.smackchat.R
+import com.anb.smackchat.Services.AuthService
 import kotlinx.android.synthetic.main.activity_create_user.*
 import java.util.*
 
@@ -49,6 +50,21 @@ class CreateUserActivity : AppCompatActivity() {
     }
 
     fun createUserClicked(view: View){
-
+        val username = createUsernameTxt.text.toString()
+        val email = createEmailTxt.text.toString()
+        val password = createPasswordTxt.text.toString()
+        AuthService.registerUser(this, email,password) { registerSuccess ->
+            if (registerSuccess){
+                AuthService.loginUser(this,email,password){ loginSuccess ->
+                    if (loginSuccess){
+                        AuthService.createUser(this, username, email, userAvatar, avatarColor){ createSuccess ->
+                            if (createSuccess){
+                                finish()
+                            }
+                        }
+                    }
+                }
+            }
+        }
     }
 }
