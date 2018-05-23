@@ -1,9 +1,10 @@
-package com.anb.smackchat
+package com.anb.smackchat.Controller
 
 import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
+import com.anb.smackchat.R
 
 class LoginActivity : AppCompatActivity() {
 
