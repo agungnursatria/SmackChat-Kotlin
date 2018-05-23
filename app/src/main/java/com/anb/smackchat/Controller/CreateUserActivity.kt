@@ -5,6 +5,7 @@ import android.graphics.Color
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.support.v4.content.LocalBroadcastManager
+import android.util.Log
 import android.view.View
 import android.widget.Toast
 import com.anb.smackchat.R
@@ -73,14 +74,17 @@ class CreateUserActivity : AppCompatActivity() {
                                     finish()
                                 } else {
                                     errorToast()
+                                    Log.d("TEST", "Create Fail")
                                 }
                             }
                         } else{
                             errorToast()
+                            Log.d("TEST", "Login Fail")
                         }
                     }
                 } else {
                     errorToast()
+                    Log.d("TEST", "Register Fail")
                 }
             }
         } else {
